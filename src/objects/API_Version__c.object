@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Custom Object for API Versions Master-Detail to API Policies, Endpoints and Log Entries</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>false</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>false</enableSharing>
+    <enableStreamingApi>false</enableStreamingApi>
+    <fields>
+        <fullName>Access_Limit_Policy_Count__c</fullName>
+        <description>Count of the number of Access Limit Policies for the API Version. If 1 is found it enforces an Access Limit for all.</description>
+        <externalId>false</externalId>
+        <label>Access Limit Policy Count</label>
+        <summaryFilterItems>
+            <field>API_Policy__c.Type__c</field>
+            <operation>equals</operation>
+            <value>Access Limit Policy</value>
+        </summaryFilterItems>
+        <summaryForeignKey>API_Policy__c.API_Version__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Flag to Activate API</description>
+        <externalId>false</externalId>
+        <label>Active</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Allowed_Content_Types__c</fullName>
+        <description>Allowed Content Types for the API Version. Content Type is required to respond.</description>
+        <externalId>false</externalId>
+        <label>Allowed Content Types</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>JSON</fullName>
+                    <default>true</default>
+                    <label>JSON</label>
+                </value>
+                <value>
+                    <fullName>XML</fullName>
+                    <default>false</default>
+                    <label>XML</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Authentication_Required__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Flag to control Authentication Policy for the API Version</description>
+        <externalId>false</externalId>
+        <label>Authentication Required</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <description>Description of the API Version used for Documentation Generation</description>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Enforce_Access_Limit_Policy__c</fullName>
+        <description>If we have more than zero access limit policies then we are going to enforce access limits.</description>
+        <externalId>false</externalId>
+        <formula>Access_Limit_Policy_Count__c &gt; 0</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Enforce Access Limit Policy</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Enforce_ETag_Header__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>When flagged the API Version will require &quot;ETag&quot; or &quot;If-None-Match&quot; headers to be present on each request</description>
+        <externalId>false</externalId>
+        <label>Enforce ETag Header</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Enforce_Restrictive_Time_Policy__c</fullName>
+        <description>If we have more than zero restrictive time policies then we are going to enforce restrictive time.</description>
+        <externalId>false</externalId>
+        <formula>Restrictive_Time_Policy_Count__c &gt; 0</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Enforce Restrictive Time Policy</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Enforce_Whitelist_Policy__c</fullName>
+        <description>If we have more than zero whitelist policies then we are going to enforce whitelisting.</description>
+        <externalId>false</externalId>
+        <formula>Whitelist_Policy_Count__c &gt; 0</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Enforce Whitelist Policy</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Log_API_Access__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Log API Access by creating API_Log_Entry__c records</description>
+        <externalId>false</externalId>
+        <label>Log API Access</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Restrictive_Time_Policy_Count__c</fullName>
+        <description>Count of the number of Restrictive Time Policies for the API Version. If 1 is found it enforces a Restrictive Time for all.</description>
+        <externalId>false</externalId>
+        <label>Restrictive Time Policy Count</label>
+        <summaryFilterItems>
+            <field>API_Policy__c.Type__c</field>
+            <operation>equals</operation>
+            <value>Restrictive Time Policy</value>
+        </summaryFilterItems>
+        <summaryForeignKey>API_Policy__c.API_Version__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Whitelist_Policy_Count__c</fullName>
+        <description>Count of the number of Whitelist Policies for the API Version. If 1 is found it enforces Whitelisting for all.</description>
+        <externalId>false</externalId>
+        <label>Whitelist Policy Count</label>
+        <summaryFilterItems>
+            <field>API_Policy__c.Type__c</field>
+            <operation>equals</operation>
+            <value>Whitelist Policy</value>
+        </summaryFilterItems>
+        <summaryForeignKey>API_Policy__c.API_Version__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <label>API Version</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>v{0}</displayFormat>
+        <label>API Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>API Versions</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <visibility>Public</visibility>
+</CustomObject>

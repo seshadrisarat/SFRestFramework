@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>API Version and Endpoint Policies that determines access</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>false</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>false</enableSharing>
+    <enableStreamingApi>false</enableStreamingApi>
+    <fields>
+        <fullName>API_Endpoint__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Policy can be API Endpoint Specific</description>
+        <externalId>false</externalId>
+        <label>API Endpoint</label>
+        <referenceTo>API_Endpoint__c</referenceTo>
+        <relationshipLabel>API Policies</relationshipLabel>
+        <relationshipName>API_Policies</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>API_Policy_Full_Name__c</fullName>
+        <description>Formula to Concatenate API Version, API Endpoint and API Policy Name</description>
+        <externalId>false</externalId>
+        <formula>API_Version__r.Name + IF( NOT(ISBLANK(API_Endpoint__c)), &apos; &apos; +  API_Endpoint__r.Name, &apos;&apos; ) + &apos; &apos; + Name + &apos; &apos; + Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>API Policy Full Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>API_Version__c</fullName>
+        <description>API Version that this Policy applies to</description>
+        <externalId>false</externalId>
+        <label>API Version</label>
+        <referenceTo>API_Version__c</referenceTo>
+        <relationshipLabel>API Policies</relationshipLabel>
+        <relationshipName>API_Policies</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Access_Limit_HTTP_Methods__c</fullName>
+        <description>HTTP Methods that count towards Access Limit</description>
+        <externalId>false</externalId>
+        <label>Access Limit HTTP Methods</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>HTTP_Method</valueSetName>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Access_Limit_UOM__c</fullName>
+        <description>UOM for the Access Limit applied to the API Version or Endpoint</description>
+        <externalId>false</externalId>
+        <label>Access Limit UOM</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Hour</fullName>
+                    <default>false</default>
+                    <label>Hour</label>
+                </value>
+                <value>
+                    <fullName>Day</fullName>
+                    <default>false</default>
+                    <label>Day</label>
+                </value>
+                <value>
+                    <fullName>Month</fullName>
+                    <default>false</default>
+                    <label>Month</label>
+                </value>
+                <value>
+                    <fullName>Year</fullName>
+                    <default>false</default>
+                    <label>Year</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Access_Limit__c</fullName>
+        <description>Limit the access to this API Version or Endpoint per User</description>
+        <externalId>false</externalId>
+        <label>Access Limit</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Flag to Activate the API Policy</description>
+        <externalId>false</externalId>
+        <label>Active</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <description>Description for the API Policy used for Documentation Generation</description>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Hours_Range_End__c</fullName>
+        <defaultValue>TIMEVALUE(&apos;0:00&apos;)</defaultValue>
+        <description>The end of the Hours Range that this Policy applies to</description>
+        <externalId>false</externalId>
+        <label>Hours Range End</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Time</type>
+    </fields>
+    <fields>
+        <fullName>Hours_Range_Start__c</fullName>
+        <defaultValue>TIMEVALUE(&apos;23:59&apos;)</defaultValue>
+        <description>The start of the Hours Range that this Policy applies to</description>
+        <externalId>false</externalId>
+        <label>Hours Range Start</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Time</type>
+    </fields>
+    <fields>
+        <fullName>IP_Range_End_Val__c</fullName>
+        <description>Formula to turn IP Range End into an Integer</description>
+        <externalId>false</externalId>
+        <formula>IF( NOT( ISBLANK( IP_Range_End__c ) ), VALUE( SUBSTITUTE( IP_Range_End__c, &apos;.&apos;, &apos;0&apos;) ), 255025502550255)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>IP Range End Val</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IP_Range_End__c</fullName>
+        <defaultValue>&apos;255.255.255.255&apos;</defaultValue>
+        <description>The end of the IP Address Range that this Policy applies to</description>
+        <externalId>false</externalId>
+        <label>IP Range End</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IP_Range_Start_Val__c</fullName>
+        <description>Formula to turn IP Range Start into an Integer</description>
+        <externalId>false</externalId>
+        <formula>IF( NOT( ISBLANK( IP_Range_Start__c ) ), VALUE( SUBSTITUTE( IP_Range_Start__c, &apos;.&apos;, &apos;0&apos;) ), 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>IP Range Start Val</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IP_Range_Start__c</fullName>
+        <defaultValue>&apos;0.0.0.0&apos;</defaultValue>
+        <description>The start of the IP Address Range that this Policy applies to</description>
+        <externalId>false</externalId>
+        <label>IP Range Start</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Include_in_Documentation__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Flag to include this API Policy in the Documentation</description>
+        <externalId>false</externalId>
+        <label>Include in Documentation</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Name__c</fullName>
+        <description>Short description for the API Policy</description>
+        <externalId>false</externalId>
+        <label>Name</label>
+        <length>80</length>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <description>API Policy Type allows the API Policy to be used for Whitelisted Access, Time Restricting Access or Limit Access.</description>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Access Limit Policy</fullName>
+                    <default>false</default>
+                    <label>Access Limit Policy</label>
+                </value>
+                <value>
+                    <fullName>Restrictive Time Policy</fullName>
+                    <default>false</default>
+                    <label>Restrictive Time Policy</label>
+                </value>
+                <value>
+                    <fullName>Whitelist Policy</fullName>
+                    <default>false</default>
+                    <label>Whitelist Policy</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>API Policy</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>P-{0000}</displayFormat>
+        <label>API Policy Numper</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>API Policies</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>API_Policy</fullName>
+        <active>true</active>
+        <label>API Policy</label>
+        <picklistValues>
+            <picklist>Access_Limit_HTTP_Methods__c</picklist>
+            <values>
+                <fullName>DELETE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GET</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HEAD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PATCH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>POST</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PUT</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Access_Limit_UOM__c</picklist>
+            <values>
+                <fullName>Day</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hour</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Month</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Year</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Access Limit Policy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Restrictive Time Policy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Whitelist Policy</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>Access_Limit_Does_Not_Apply</fullName>
+        <active>true</active>
+        <description>Access limit does not apply to Policy Type</description>
+        <errorConditionFormula>AND(
+  NOT(ISPICKVAL( Type__c, &apos;Access Limit Policy&apos; )),
+  NOT(ISBLANK( Access_Limit__c ))
+)</errorConditionFormula>
+        <errorDisplayField>Access_Limit__c</errorDisplayField>
+        <errorMessage>Access limit does not apply to Policy Type</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Access_Limit_More_Than_Zero</fullName>
+        <active>true</active>
+        <description>Access Limit requires a value more than Zero</description>
+        <errorConditionFormula>AND(
+NOT(ISBLANK( Access_Limit__c )),
+Access_Limit__c &lt; 1
+)</errorConditionFormula>
+        <errorDisplayField>Access_Limit__c</errorDisplayField>
+        <errorMessage>Access Limit requires a value more than Zero</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Access_Limit_Policy_Requires_HTTP_Method</fullName>
+        <active>true</active>
+        <description>Access limit policy requires HTTP Method</description>
+        <errorConditionFormula>AND(
+  ISPICKVAL( Type__c, &apos;Access Limit Policy&apos; ),
+  ISBLANK( Access_Limit_HTTP_Methods__c )
+)</errorConditionFormula>
+        <errorDisplayField>Access_Limit_HTTP_Methods__c</errorDisplayField>
+        <errorMessage>Access limit policy requires HTTP Method</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Access_Limit_Requires_Authenticated_API</fullName>
+        <active>true</active>
+        <description>Access Limit requires Authenticated and Logged API Access</description>
+        <errorConditionFormula>AND(
+NOT(ISBLANK( Access_Limit__c )),
+OR(NOT( API_Version__r.Authentication_Required__c ), NOT( API_Version__r.Log_API_Access__c ))
+)</errorConditionFormula>
+        <errorDisplayField>Access_Limit__c</errorDisplayField>
+        <errorMessage>Access Limit requires Authenticated and Logged API Access</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Access_Limit_UOM_Required</fullName>
+        <active>true</active>
+        <description>Access Limit UOM required for Access Limit</description>
+        <errorConditionFormula>AND(
+NOT(ISBLANK( Access_Limit__c )),
+ISPICKVAL( Access_Limit_UOM__c, &apos;&apos;)
+)</errorConditionFormula>
+        <errorDisplayField>Access_Limit_UOM__c</errorDisplayField>
+        <errorMessage>Access Limit UOM required for Access Limit</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Policy_Type_Value_Required</fullName>
+        <active>true</active>
+        <description>Policy Type must have a value in IP Range, Hours Range or Access Limit</description>
+        <errorConditionFormula>OR(
+    AND(
+        ISPICKVAL( Type__c, &apos;Access Limit Policy&apos; ),
+        ISBLANK( Access_Limit__c )
+    ),
+    AND(
+        ISPICKVAL( Type__c, &apos;Restrictive Time Policy&apos; ),
+        ISBLANK( Hours_Range_Start__c )
+    ),
+    AND(
+        ISPICKVAL( Type__c, &apos;Whitelist Policy&apos; ),
+        ISBLANK( IP_Range_Start__c )
+    )
+)</errorConditionFormula>
+        <errorMessage>Policy Type must have a value in IP Range, Hours Range or Access Limit</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Start_And_End_Hours_Range_Required</fullName>
+        <active>true</active>
+        <description>Start and End Hours Range Required</description>
+        <errorConditionFormula>AND(
+OR( NOT( ISBLANK( Hours_Range_Start__c ) ), NOT( ISBLANK( Hours_Range_End__c ) ) ),
+OR( ISBLANK( Hours_Range_Start__c ), ISBLANK( Hours_Range_End__c ) )
+)</errorConditionFormula>
+        <errorMessage>Start and End Hours Range Required</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Start_And_End_IP_Range_Required</fullName>
+        <active>true</active>
+        <description>Start and End IP Range Required</description>
+        <errorConditionFormula>AND(
+OR( NOT( ISBLANK( IP_Range_Start__c ) ), NOT( ISBLANK( IP_Range_End__c ) ) ),
+OR( ISBLANK( IP_Range_Start__c ), ISBLANK( IP_Range_End__c ) )
+)</errorConditionFormula>
+        <errorMessage>Start and End IP Range Required</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Start_IP_Must_Be_Smaller_Than_End_IP</fullName>
+        <active>true</active>
+        <description>Start IP must be smaller than End IP for the Range</description>
+        <errorConditionFormula>AND(
+	AND( NOT(ISBLANK( IP_Range_Start__c )), NOT(ISBLANK( IP_Range_End__c )) ),
+	 IP_Range_Start_Val__c  &gt;  IP_Range_End_Val__c 
+)</errorConditionFormula>
+        <errorDisplayField>IP_Range_Start__c</errorDisplayField>
+        <errorMessage>Start IP must be smaller than End IP for the Range</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Valid_End_IP_Required</fullName>
+        <active>true</active>
+        <description>Valid IP required as end of IP Address Range</description>
+        <errorConditionFormula>AND(
+NOT( ISBLANK( IP_Range_End__c ) ),
+NOT(
+REGEX( IP_Range_End__c ,
+&quot;^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$&quot;
+))
+)</errorConditionFormula>
+        <errorDisplayField>IP_Range_End__c</errorDisplayField>
+        <errorMessage>Valid IP required as end of IP Address Range</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Valid_Start_IP_Required</fullName>
+        <active>true</active>
+        <description>Valid IP required as start of IP Address Range</description>
+        <errorConditionFormula>AND(
+NOT( ISBLANK( IP_Range_Start__c ) ),
+NOT(
+REGEX( IP_Range_Start__c ,
+&quot;^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$&quot;
+))
+)</errorConditionFormula>
+        <errorDisplayField>IP_Range_Start__c</errorDisplayField>
+        <errorMessage>Valid IP required as start of IP Address Range</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

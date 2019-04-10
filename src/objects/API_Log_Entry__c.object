@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Log Entry for access or error per API Endpoint call</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>API_Endpoint__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>API Endpoint that was accessed</description>
+        <externalId>false</externalId>
+        <label>API Endpoint</label>
+        <referenceTo>API_Endpoint__c</referenceTo>
+        <relationshipLabel>API Log Entries</relationshipLabel>
+        <relationshipName>API_Log_Entries</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>API_Policies_Applied__c</fullName>
+        <description>Policies Applied to the API request</description>
+        <externalId>false</externalId>
+        <label>API Policies Applied</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>API_Version__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>API Version that was accessed</description>
+        <externalId>false</externalId>
+        <label>API Version</label>
+        <referenceTo>API_Version__c</referenceTo>
+        <relationshipLabel>API Log Entries</relationshipLabel>
+        <relationshipName>API_Log_Entries</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Exception_Message__c</fullName>
+        <description>Message from the Exception if this is a Error Log Entry</description>
+        <externalId>false</externalId>
+        <label>Exception Message</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Execution_Governors_and_Limits__c</fullName>
+        <description>Execution Governors and Limits for the request</description>
+        <externalId>false</externalId>
+        <label>Execution Governors and Limits</label>
+        <length>131072</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>HTTP_Method__c</fullName>
+        <description>HTTP Method that was used to access the API</description>
+        <externalId>false</externalId>
+        <label>HTTP Method</label>
+        <length>6</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Name__c</fullName>
+        <description>This field is to help populate the Autonumber field without a SOQL Query</description>
+        <externalId>false</externalId>
+        <formula>Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Remote_Address__c</fullName>
+        <description>Remote Address (IP) from the requestor</description>
+        <externalId>false</externalId>
+        <label>Remote Address</label>
+        <length>15</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Request_Headers__c</fullName>
+        <description>The Request Headers present at the time of the API call</description>
+        <externalId>false</externalId>
+        <label>Request Headers</label>
+        <length>131072</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Request_Params__c</fullName>
+        <description>The URI Params that the API was accessed from</description>
+        <externalId>false</externalId>
+        <label>Request Params</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Request_Status__c</fullName>
+        <description>Formula to determine if the request was a success or an error</description>
+        <externalId>false</externalId>
+        <formula>IF( Status_Code__c &gt;= 400, &apos;Error&apos;, &apos;Success&apos; )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Request Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Request_URI__c</fullName>
+        <description>The URI the API was accessed by</description>
+        <externalId>false</externalId>
+        <label>Request URI</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Response_Headers__c</fullName>
+        <description>The Request Headers sent in the response</description>
+        <externalId>false</externalId>
+        <label>Response Headers</label>
+        <length>131072</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Stack_Trace_String__c</fullName>
+        <description>Stack trace string from the Exception</description>
+        <externalId>false</externalId>
+        <label>Stack Trace String</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Status_Code__c</fullName>
+        <description>HTTP Response Code</description>
+        <externalId>false</externalId>
+        <label>Status Code</label>
+        <precision>3</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type_Name__c</fullName>
+        <description>Exception Type Name</description>
+        <externalId>false</externalId>
+        <label>Type Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <label>API Log Entry</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>ALE-{0000000}</displayFormat>
+        <label>API Log Entry Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>API Log Entries</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <visibility>Public</visibility>
+</CustomObject>

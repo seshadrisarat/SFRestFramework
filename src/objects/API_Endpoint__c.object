@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>API Version Endpoints that can be accessed to interact with your Org through GET, PUT, POST, PATCH or DELETE methods</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>false</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>false</enableSharing>
+    <enableStreamingApi>false</enableStreamingApi>
+    <fields>
+        <fullName>API_Parent_Endpoint__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The Parent API Endpoint for this Endpoint</description>
+        <externalId>false</externalId>
+        <label>API Parent Endpoint</label>
+        <referenceTo>API_Endpoint__c</referenceTo>
+        <relationshipLabel>API Child Endpoints</relationshipLabel>
+        <relationshipName>API_Endpoints</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>API_Version__c</fullName>
+        <externalId>false</externalId>
+        <label>API Version</label>
+        <referenceTo>API_Version__c</referenceTo>
+        <relationshipName>APIs</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Flag to Activate the API</description>
+        <externalId>false</externalId>
+        <label>Active</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Allowed_Methods__c</fullName>
+        <description>Allowed HTTP Methods for the API</description>
+        <externalId>false</externalId>
+        <label>Allowed Methods</label>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>HTTP_Method</valueSetName>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <description>Description of the API used for Documentation Generation</description>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ETag_Datetime_Field__c</fullName>
+        <description>Field used to calculate ETags. Must be Datetime field.</description>
+        <externalId>false</externalId>
+        <label>ETag Datetime Field</label>
+        <length>40</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Include_in_Parent_GET__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Include this Endpoint in the GET request of the Parent Endpoint</description>
+        <externalId>false</externalId>
+        <label>Include in Parent GET</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Label__c</fullName>
+        <description>Singular Label for the API Endpoint</description>
+        <externalId>false</externalId>
+        <label>Label</label>
+        <length>80</length>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Parent_SObject_Id_Field__c</fullName>
+        <description>Field that should be used by the API Endpoint to reference to its Parent</description>
+        <externalId>false</externalId>
+        <label>Parent SObject Id Field</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SObject_API_Name__c</fullName>
+        <description>The SObject API Name for this Endpoint, is used by Field Mappings</description>
+        <externalId>false</externalId>
+        <label>SObject API Name</label>
+        <length>80</length>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SObject_Id_Field__c</fullName>
+        <description>The SObject Id field used to Query the records as well as Insert / Update. Should be an Id or External Id field.</description>
+        <externalId>false</externalId>
+        <label>SObject Id Field</label>
+        <length>40</length>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Version_Endpoint__c</fullName>
+        <description>API Version Endpoint</description>
+        <externalId>false</externalId>
+        <formula>&apos;/services/apexrest/api/&apos; + API_Version__r.Name + &apos;/&apos; + Name + &apos;/&apos;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Version Endpoint</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>API Endpoint</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>API Endpoint Name</label>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>API Endpoints</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>API_Endpoint_Parent_Version</fullName>
+        <active>true</active>
+        <description>API Endpoint Parent must have the same Version</description>
+        <errorConditionFormula>AND(
+  NOT( ISBLANK( API_Parent_Endpoint__c ) ),
+  API_Parent_Endpoint__r.API_Version__c != API_Version__c
+)</errorConditionFormula>
+        <errorDisplayField>API_Parent_Endpoint__c</errorDisplayField>
+        <errorMessage>API Endpoint Parent must have the same Version</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>HTTP_GET_required_for_Include_in_GET</fullName>
+        <active>true</active>
+        <description>HTTP GET method required when Include in Parent GET is true</description>
+        <errorConditionFormula>AND(
+  Include_in_Parent_GET__c,
+  NOT( INCLUDES( Allowed_Methods__c , &apos;GET&apos; ) )
+)</errorConditionFormula>
+        <errorDisplayField>Allowed_Methods__c</errorDisplayField>
+        <errorMessage>HTTP GET method required when Include in Parent GET is true</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Parent_Endpoint_required</fullName>
+        <active>true</active>
+        <description>Parent Endpoint required when Parent SObject Id Field or Include in Parent GET not NULL</description>
+        <errorConditionFormula>AND(
+  ISBLANK( API_Parent_Endpoint__c ),
+  OR(
+    NOT( ISBLANK( Parent_SObject_Id_Field__c ) ),
+    Include_in_Parent_GET__c != NULL
+  )
+)</errorConditionFormula>
+        <errorDisplayField>API_Parent_Endpoint__c</errorDisplayField>
+        <errorMessage>Parent Endpoint required when Parent SObject Id Field or Include in Parent GET not NULL</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Parent_SObject_Id_Field_Required</fullName>
+        <active>true</active>
+        <description>Parent SObject Id field Required when Parent Endpoint is not blank</description>
+        <errorConditionFormula>AND(
+  NOT( ISBLANK( API_Parent_Endpoint__c ) ),
+  ISBLANK( Parent_SObject_Id_Field__c )
+)</errorConditionFormula>
+        <errorDisplayField>Parent_SObject_Id_Field__c</errorDisplayField>
+        <errorMessage>Parent SObject Id field Required when Parent Endpoint is not blank</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

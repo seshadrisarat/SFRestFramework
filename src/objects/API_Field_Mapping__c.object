@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>API Endpoint Field Mapping that maps SObject Field to String Field Name</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>false</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>false</enableSharing>
+    <enableStreamingApi>false</enableStreamingApi>
+    <fields>
+        <fullName>API_Endpoint__c</fullName>
+        <description>Endpoint for the Field Mapping</description>
+        <externalId>false</externalId>
+        <label>API Endpoint</label>
+        <referenceTo>API_Endpoint__c</referenceTo>
+        <relationshipLabel>API Field Mappings</relationshipLabel>
+        <relationshipName>API_Field_Mappings</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Allowed_Methods__c</fullName>
+        <description>Allowed HTTP Methods for this Field Mapping</description>
+        <externalId>false</externalId>
+        <label>Allowed Methods</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>HTTP_Method</valueSetName>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Field_Name__c</fullName>
+        <description>Field Mapping Name</description>
+        <externalId>false</externalId>
+        <label>Field Name</label>
+        <length>80</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mapped_API_Endpoint__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>API Endpoint that should be used to build a Related List for this SObject Field Mapping</description>
+        <externalId>false</externalId>
+        <label>Mapped API Endpoint</label>
+        <referenceTo>API_Endpoint__c</referenceTo>
+        <relationshipLabel>API Field Mappings (Mapped API Endpoint)</relationshipLabel>
+        <relationshipName>API_Related_Field_Mappings</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Required_for_Create__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Flags field as required for creating a record</description>
+        <externalId>false</externalId>
+        <label>Required for Create</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Required_for_Update__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Flags field as required for updating a record using PUT or POST</description>
+        <externalId>false</externalId>
+        <label>Required for Update</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SObject_Field_Name__c</fullName>
+        <description>SObject Field Name for the mapped field</description>
+        <externalId>false</externalId>
+        <label>SObject Field Name</label>
+        <length>80</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>API Field Mapping</label>
+    <nameField>
+        <displayFormat>AFM-{0000000}</displayFormat>
+        <label>API Field Mapping Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>API Field Mappings</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>Create_requires_HTTP_Method</fullName>
+        <active>true</active>
+        <description>Create requires correct HTTP Method</description>
+        <errorConditionFormula>AND(
+   Required_for_Create__c,
+   NOT( INCLUDES( Allowed_Methods__c ,&apos;POST&apos;) )
+)</errorConditionFormula>
+        <errorDisplayField>Required_for_Create__c</errorDisplayField>
+        <errorMessage>Create requires correct HTTP Method</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Lookup_Create_or_Update_not_allowed</fullName>
+        <active>true</active>
+        <description>Create and Update not allowed on Lookup Field</description>
+        <errorConditionFormula>AND(
+    OR( Required_for_Create__c, Required_for_Update__c ),
+    CONTAINS( SObject_Field_Name__c, &apos;.&apos; )
+)</errorConditionFormula>
+        <errorDisplayField>SObject_Field_Name__c</errorDisplayField>
+        <errorMessage>Create and Update not allowed on Lookup Field</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Update_requires_HTTP_Method</fullName>
+        <active>true</active>
+        <description>Update requires correct HTTP Method</description>
+        <errorConditionFormula>AND(
+    Required_for_Update__c,
+    OR(
+        NOT( INCLUDES( Allowed_Methods__c, &apos;POST&apos; ) ),
+        NOT( INCLUDES( Allowed_Methods__c, &apos;PUT&apos; ) )
+    )
+)</errorConditionFormula>
+        <errorDisplayField>Required_for_Update__c</errorDisplayField>
+        <errorMessage>Update requires correct HTTP Method</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>
