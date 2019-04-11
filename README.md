@@ -46,6 +46,19 @@ The API supports applying policies to API requests, like:
 
 The API supports `XML` and `JSON` response types and receiving body.
 
+The API supports adding an `ETAG` for If-Not-Modified responses
+
+The API supports custom exception responses and HTTP Response Codes:
+
+1. `NotModifiedException`          - `304`
+1. `BadRequestException`           - `400`
+1. `UnauthorizedException`         - `401`
+1. `ForbiddenException`            - `403`
+1. `NotFoundException`             - `404`
+1. `MethodNotAllowedException`     - `405`
+1. `TooManyRequestsException`      - `429`
+1. `ServiceUnavailableException`   - `503`
+
 ### Future plans:
 
 1. Dynamic structure with custom key value pairs
